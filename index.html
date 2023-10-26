@@ -1,0 +1,228 @@
+<html>
+    <body>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search Google" >
+            <button id="search-button"><img src="Search.png" id="search-img" height="50px" width="50px"></button>
+        </div>
+        <div class="search-results" id="search-results"></div>
+        <div id="line1">  </div>
+        <div id="line2">  </div>
+        <div id="color-menu">
+            <img src="color.png" id="color">
+            <div id="colors">
+                <button id="color1" onclick="color1()"></button>
+                <button id="color2" onclick="color2()"></button>
+            </div>
+        </div>
+        <div id="shortcuts">
+            <div id="codepen">
+                <a href="https://codepen.io/pen/"><img src="codepen.png" height="75px" width="75px" id="img"></a>
+            </div>
+            <div id="w3schools">
+                <a href="https://www.w3schools.com/"><img src="w3schools.png" height="50px" width="50px" ></a>
+            </div>
+            <div id="canva">
+                <a href="https://www.canva.com/"><img src="canva.png" height="50px" width="50px" id="img"></a>
+            </div>
+            <div id="classroom">
+                <a href="https://classroom.google.com/h"><img src="classroom.png" height="50px" width="55px"></a>
+            </div>
+        </div>
+        
+    </body>
+    <style>
+        .search-container{
+            background-color: rgb(37, 37, 37);
+            border-radius: 30px;
+            width: 50%;
+            height: 10%;
+            align-self: center;
+            position: relative;
+            top: 35%;
+            left: 30%;
+        }
+        #search-input{
+            left: 5%;
+            bottom: 12.5%;
+            position: absolute;
+            width: 80%;
+            height: 75%;
+            color: whitesmoke;
+            background-color: transparent;
+            border-color: transparent;
+            font-size: 25px;
+        
+        }
+        #search-input:focus{
+            outline: none;
+        }
+        #search-button{
+            right: 5%;
+            position: absolute;
+            top: 12.5%;
+            height: 75%;
+            background-color: transparent;
+            border-color: transparent;
+            
+        }
+        #line2{
+            position: absolute;
+            top: 10%;
+            transform: rotate(-45deg);
+            width: 300px;
+            text-align: center;
+            left: -55px;
+            height: 30px;
+            background: linear-gradient(62deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+            animation: gradient 15s ease infinite; 
+            background-size: 400% 400%;
+        }
+        #line1{
+            position: absolute;
+            top: -5%;
+            transform: rotate(-45deg);
+            width: 300px;
+            text-align: center;
+            left: -55px;
+            height: 30px;
+            background: linear-gradient(62deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+            animation: gradient 15s ease infinite; 
+            background-size: 400% 400%;
+  
+        }
+        @-webkit-keyframes gradient{
+            0% {
+                background-position: 0 50%;
+            }
+             50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        @keyframes gradient{
+            0% {
+                background-position: 0 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        body{
+            background-color: #000000;
+        }
+        #color{
+            position: absolute;
+            right: 5%;
+            width: 40px;
+            height: 40px;
+            top: 10%;
+            transition: all 0.5s ease-in ;
+        }
+        
+        #color-menu{
+            background-color: rgb(37, 37, 37);
+            border-radius: 30px;
+            position: absolute;
+            right: 1%;
+            width: 200px;
+            height: 60px;
+            top: 1%;
+        }
+        #color1{
+            border-radius: 50px;
+            position: absolute;
+            right: 30%;
+            width: 45px;
+            height: 45px;
+            top: 10%;
+            background: linear-gradient(62deg, #eee452, #FFD700, #FFA500,#FFD700, #eee452);
+            animation: gradient 15s ease infinite; 
+            background-size: 400% 400%;
+        }
+        #color2{
+            border-radius: 50px;
+            position: absolute;
+            right: 60%;
+            width: 45px;
+            height: 45px;
+            top: 10%;
+            background: linear-gradient(62deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+            animation: gradient 15s ease infinite; 
+            background-size: 400% 400%;
+        }
+        #codepen{
+            width: 55px;
+            height: 55px;
+            border-radius: 50px;
+            position: absolute;
+            align-items: center;
+            bottom: 3%;
+            right: 30%;
+        }
+        #w3schools{
+            width: 55px;
+            height: 55px;
+            border-radius: 50px;
+            position: absolute;
+            align-items: center;
+            bottom: 1%;
+            right: 40%;
+        }
+        #canva{
+            width: 55px;
+            height: 55px;
+            border-radius: 50px;
+            position: absolute;
+            align-items: center;
+            bottom: 1%;
+            right: 50%;
+        }
+        #classroom{
+            width: 55px;
+            height: 55px;
+            border-radius: 50px;
+            position: absolute;
+            align-items: center;
+            bottom: 1%;
+            right: 60%;
+        }
+        
+        #img{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: auto;
+            margin-bottom: auto;
+            border-radius: 50px;
+        }
+        
+        
+
+        
+
+        
+    </style>
+    <script>
+        document.getElementById("search-button").addEventListener("click", function () {
+        const query = document.getElementById("search-input").value;
+        if (query) {
+            const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+            window.open(googleSearchUrl, "_self");
+        }
+    });
+    function color1(){
+        window.open("Home Screen - Gold Edition.html", "_self");
+    }
+    function color2(){
+        window.open("Home Screen - Original Edition.html", "_self");
+
+    }
+    
+    </script>
+</html>
