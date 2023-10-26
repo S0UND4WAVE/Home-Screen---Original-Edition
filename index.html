@@ -1,5 +1,5 @@
 <html>
-    <grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration>
+
     <body>
         <div class="search-container">
             <input type="text" id="search-input" placeholder="Search Google" >
@@ -210,6 +210,13 @@
         
     </style>
     <script>
+        function fnIgnoreElements(el) {
+          if (typeof el.shadowRoot == 'object' && el.shadowRoot !== null) return true
+        }
+
+        html2canvas(document.querySelector("#capture"), { ignoreElements: fnIgnoreElements }).then(canvas => {
+            document.body.appendChild(canvas)
+        });
         document.getElementById("search-button").addEventListener("click", function () {
         const query = document.getElementById("search-input").value;
         if (query) {
